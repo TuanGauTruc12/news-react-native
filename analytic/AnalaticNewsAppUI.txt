@@ -1,0 +1,88 @@
+- Screen: 
+	Splash
+	Login
+	SignUp
+	ForgotPassword
+	InformationProfile
+	ChangeInfomationProfi
+	Search
+	AuthorProfile
+	DetailNews
+	Comments
+	Sending Comment
+	Settings
+	Edit Profile
+	+ Have button navigation
+		- Home
+		- Notification
+		- Tab 2, 3 button navigation
+		- Profile
+- Component:
+	+ CustomInput 
+	(
+		- title:
+		- required
+		- placehoder
+		- isError
+		- messageError
+		- isPassword
+		- className
+		- isSearch
+		- setInput
+		- input
+	)
+	+ CustomAvartar
+	(
+		- className
+		- source
+		- isChooseImage
+		- setAvartar
+	)
+	+ CustomButton
+	(
+		- className
+		- text
+		- icon
+		- onPress
+	)
+	+ CustomNewsItem
+	(
+		- new(image, title author, dateCreated, sumary, slug, )
+		- className
+		- onPress
+	)
+	+ CustomCategory
+	(
+		- category(name, slug)
+		- isChecked
+	)
+	+ CustomNotification
+	(
+		- DateNotification
+		- InfoNotification(CustomAvartar, Infomation(title, TimeNotification, CustomButton))
+	)
+	+ CustomSetting
+	(
+		- className
+		- CustomButton(onPress, icon)
+		- CustomButton(className, icon, text)
+		- isLogin
+	)
+	+ CustomComment
+	(
+		- CustomInput(plhd, input, setInput, className)
+		- CustomButton(onPress, icon, className)
+		- setComment()
+		- isMe
+		- className
+		- CustomCommentItem
+		(
+			+ CustomAvartar()
+			+ displayNameUser
+			+ contentComment
+			+ timeComment
+			+ likedCount
+			+ commentId 
+			+ setCommentId
+		)
+	)
