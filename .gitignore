@@ -69,4 +69,7 @@ yarn-error.log
 
 *.log
 
-/objects/**.json
+.vscode
+
+__tests__
+.bundle
