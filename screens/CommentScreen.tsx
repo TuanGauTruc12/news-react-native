@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Keyboard, Button} from 'react-native';
 import {CustomCommentList, CustomInput} from '../components';
-import {icons} from '../utils';
+import {icons, navigation} from '../utils';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {useNewsContext} from '../components/NewsContext';
 import {useNavigation} from '@react-navigation/native';
@@ -33,8 +33,7 @@ interface CommentScreenProps {
 }
 
 export default function CommentScreen() {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParams>>();
+
   const route = useRoute();
 
   const {idNew} = route.params as {idNew: number};
@@ -99,23 +98,3 @@ export default function CommentScreen() {
     </View>
   );
 }
-
-/*
-<View>
-        <CustomInput
-          // isSearch
-          handleSubmitMessage={handleSubmitMessage}
-          title="Password"
-          isComment
-          // isError={error.length > 0}
-          // messageError={error}
-          // isPassword
-          // showPassword={isShowPassword}
-          // setShowPassword={setShowPassword}
-          className={['']}
-          input={commentInput}
-          // required={true}
-          setInput={setCommentInput}
-        />
-      </View>
-*/

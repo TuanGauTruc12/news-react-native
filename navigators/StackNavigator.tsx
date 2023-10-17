@@ -20,10 +20,11 @@ import {
 import TabNavigator from './TabNavigator';
 import {RootStackParams} from '../utils';
 
+const RootStack = createNativeStackNavigator<RootStackParams>();
+
 export default function StackNavigator() {
-  const RootStack = createNativeStackNavigator<RootStackParams>();
   return (
-    <RootStack.Navigator initialRouteName="HomeScreen">
+    <RootStack.Navigator initialRouteName="TrendingScreen">
       <RootStack.Screen
         name="SplashScreen"
         component={SplashScreen}
@@ -59,6 +60,18 @@ export default function StackNavigator() {
       <RootStack.Screen
         name="AuthorProfileScreen"
         component={AuthorProfileScreen}
+        options={{headerShown: false}}
+      />
+
+      <RootStack.Screen
+        name="LatestScreen"
+        component={LatestScreen}
+        options={{headerShown: false}}
+      />
+
+      <RootStack.Screen
+        name="TrendingScreen"
+        component={TrendingScreen}
         options={{headerShown: false}}
       />
 
@@ -101,16 +114,8 @@ export default function StackNavigator() {
         component={NotificationScreen}
         options={{headerShown: false}}
       />
-      <RootStack.Screen
-        name="LatestScreen"
-        component={LatestScreen}
-        options={{headerShown: false}}
-      />
-      <RootStack.Screen
-        name="TrendingScreen"
-        component={TrendingScreen}
-        options={{headerShown: false}}
-      /> */}
+ 
+      */}
     </RootStack.Navigator>
   );
 }

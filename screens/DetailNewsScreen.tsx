@@ -1,14 +1,17 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, ScrollView, Image} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RootStackParams, buttonOpacityActive, icons} from '../utils';
+import {
+  buttonOpacityActive,
+  icons,
+  nameNavigationTitle,
+  navigation,
+  navigationTitle,
+} from '../utils';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {CustomImage} from '../components';
+import HeaderBack from '../components/HeaderBack';
 
 export default function DetailNewsScreen() {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParams>>();
   const {
     faArrowLeft,
     faShareNodes,
@@ -23,26 +26,16 @@ export default function DetailNewsScreen() {
     navigation.push('AuthorProfileScreen');
   };
 
+  const hederBackTitle: string = nameNavigationTitle('DetailNewsScreen');
+
   return (
     <View className="flex-1 flex-col w-full bg-white">
       {/* Header */}
-      <View className="h-14 px-3 mb-4 items-center flex-row relative">
-        <TouchableOpacity
-          onPress={() => {
-            navigation.replace('HomeScreen');
-          }}
-          className="h-full w-14 items-center justify-center">
-          <FontAwesomeIcon size={30} icon={faArrowLeft} />
-        </TouchableOpacity>
-        <View className="absolute items-center justify-center right-0 flex-row top-0 bottom-0">
-          <TouchableOpacity className="w-12 h-full items-center justify-center">
-            <FontAwesomeIcon size={30} icon={faShareNodes} color="" />
-          </TouchableOpacity>
-          <TouchableOpacity className="w-12 h-full items-center justify-center ml-4">
-            <FontAwesomeIcon size={30} icon={faEllipsisVertical} />
-          </TouchableOpacity>
-        </View>
-      </View>
+      <HeaderBack
+        icons={[faArrowLeft, faShareNodes, faEllipsisVertical]}
+        nameNavigate={'HomeScreen'}
+        title={hederBackTitle}
+      />
 
       <View className="flex-1 flex-col">
         {/* Header news */}

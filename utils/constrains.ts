@@ -1,4 +1,7 @@
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import moment from 'moment';
+import {RootStackParams} from './types';
 
 export const parseDate = (time: string): string => {
   const now = moment();
@@ -28,4 +31,14 @@ export const parseDate = (time: string): string => {
 
 export const heightNavigationBottom: number = 60;
 
-export const buttonOpacityActive: number = 0.9;
+export const buttonOpacityActive: number = 0.3;
+
+export const navigation =
+  useNavigation<NativeStackNavigationProp<RootStackParams>>();
+
+export const navigationTitle:RootStackParams = useNavigation<RootStackParams>();
+
+export function nameNavigationTitle<T extends keyof RootStackParams>(type: T): string {
+  return type.split('Screen')[0];
+}
+

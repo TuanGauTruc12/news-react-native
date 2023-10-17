@@ -36,7 +36,7 @@ interface NewsProviderProps {
   children: React.ReactNode;
 }
 
-const NewsProvider: React.FC<NewsProviderProps> = ({children}) => {
+const NewsProvider: React.FC<NewsProviderProps> = ({children}: NewsProviderProps) => {
   const [user, setUser] = useState<User | undefined>();
   const [reply, setReply] = useState<number | undefined>();
   const inputRef = useRef<TextInput>(null);

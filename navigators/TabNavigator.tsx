@@ -4,11 +4,14 @@ import {
   BookmarkScreen,
   ExploreScreen,
   HomeScreen,
+  LatestScreen,
   ProfileScreen,
 } from '../screens';
 import {RootTabParams, heightNavigationBottom, icons} from '../utils';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {Text, View, Dimensions} from 'react-native';
+
+
 
 export default function TabNavigator() {
   const Tab = createBottomTabNavigator<RootTabParams>();
@@ -57,7 +60,8 @@ export default function TabNavigator() {
           );
         },
       })}
-      initialRouteName="Home">
+      initialRouteName="Home"
+      >
       <Tab.Screen
         name="Home"
         component={HomeScreen}

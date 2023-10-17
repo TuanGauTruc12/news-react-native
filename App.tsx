@@ -10,6 +10,5 @@ export default function App(): JSX.Element {
         <StackNavigator />
       </NavigationContainer>
     </NewsContext>
-
   );
 }

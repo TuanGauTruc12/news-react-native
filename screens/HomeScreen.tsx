@@ -2,17 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {ScrollView, View, Text, TouchableOpacity} from 'react-native';
 import {CustomCategoryList, CustomImage, CustomInput} from '../components';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {RootStackParams, buttonOpacityActive, heightNavigationBottom, icons} from '../utils';
+import {RootStackParams, buttonOpacityActive, heightNavigationBottom, icons, navigation} from '../utils';
 import {Category} from '../objects/Category';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNewsContext} from '../components/NewsContext';
 
 export default function HomeScreen() {
   const {faBell, faEllipsis, faClock} = icons;
-  const [search, setSearch] = useState<string>('');
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParams>>();
+  const [search, setSearch] = useState<string>('');    
   const {setCategories} = useNewsContext();
 
   useEffect(() => {
@@ -72,7 +68,7 @@ export default function HomeScreen() {
             <TouchableOpacity
               className="p-1"
               activeOpacity={buttonOpacityActive}
-              onPress={() => navigation.replace('TrendingScreen')}>
+              onPress={() => navigation.push('TrendingScreen')}>
               <Text>See all</Text>
             </TouchableOpacity>
           </View>
@@ -112,7 +108,7 @@ export default function HomeScreen() {
             </View>
           </TouchableOpacity>
         </View>
-        <CustomCategoryList />
+        <CustomCategoryList checkSeeAll/>
       </View>
     </View>
   );

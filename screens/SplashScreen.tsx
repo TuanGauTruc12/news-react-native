@@ -1,14 +1,9 @@
 import React, {useEffect} from 'react';
 import {View, Image} from 'react-native';
 import {Circle} from '../components';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RootStackParams} from '../utils';
+import {navigation} from '../utils';
 
 function SplashScreen() {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParams>>();
-
   useEffect(() => {
     const timeOutId = setTimeout(() => {
       navigation.push('HomeScreen');
