@@ -5,10 +5,10 @@ import {NewsContext} from './components';
 
 export default function App(): JSX.Element {
   return (
-    <NewsContext>
-      <NavigationContainer>
+    <NavigationContainer>
+      <NewsContext>
         <StackNavigator />
-      </NavigationContainer>
-    </NewsContext>
+      </NewsContext>
+    </NavigationContainer>
   );
 }

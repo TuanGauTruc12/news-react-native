@@ -41,4 +41,3 @@ export const navigationTitle:RootStackParams = useNavigation<RootStackParams>();
 export function nameNavigationTitle<T extends keyof RootStackParams>(type: T): string {
   return type.split('Screen')[0];
 }
-

@@ -24,12 +24,19 @@ const RootStack = createNativeStackNavigator<RootStackParams>();
 
 export default function StackNavigator() {
   return (
-    <RootStack.Navigator initialRouteName="TrendingScreen">
+    <RootStack.Navigator initialRouteName="AuthorProfileScreen">
       <RootStack.Screen
         name="SplashScreen"
         component={SplashScreen}
         options={{headerShown: false}}
       />
+
+      <RootStack.Screen
+        name="NotificationScreen"
+        component={NotificationScreen}
+        options={{headerShown: false}}
+      />
+
       <RootStack.Screen
         name="HomeScreen"
         component={TabNavigator}
@@ -109,12 +116,7 @@ export default function StackNavigator() {
         component={EditProfileScreen}
         options={{headerShown: false}}
       />
-      <RootStack.Screen
-        name="NotificationScreen"
-        component={NotificationScreen}
-        options={{headerShown: false}}
-      />
- 
+
       */}
     </RootStack.Navigator>
   );

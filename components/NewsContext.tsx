@@ -4,18 +4,18 @@ import {
   createContext,
   useState,
   useContext,
-  useRef
+  useRef,
 } from 'react';
 import {TextInput} from 'react-native';
 import {User} from '../objects/User';
-import { Category } from '../objects/Category';
+import {Category} from '../objects/Category';
 
 type NewsContextType = {
-  user: User | undefined;
-  setUser: Dispatch<SetStateAction<User | undefined>>;
+ // user: User | undefined;
+ // setUser: Dispatch<SetStateAction<User | undefined>>;
   inputRef: React.RefObject<TextInput>;
-  reply: number | undefined;
-  setReply: Dispatch<SetStateAction<number| undefined>>;
+  //reply: number | undefined;
+  //setReply: Dispatch<SetStateAction<number | undefined>>;
   categories: Category[];
   setCategories: Dispatch<SetStateAction<Category[]>>;
 };
@@ -36,19 +36,22 @@ interface NewsProviderProps {
   children: React.ReactNode;
 }
 
-const NewsProvider: React.FC<NewsProviderProps> = ({children}: NewsProviderProps) => {
-  const [user, setUser] = useState<User | undefined>();
-  const [reply, setReply] = useState<number | undefined>();
-  const inputRef = useRef<TextInput>(null);
+const NewsProvider: React.FC<NewsProviderProps> = ({
+  children,
+}: NewsProviderProps) => {
+  // const [user, setUser] = useState<User | undefined>();
+  // const [reply, setReply] = useState<number | undefined>();
   const [categories, setCategories] = useState<Category[]>([]);
+  const inputRef = useRef<TextInput>(null);
 
   const contextValue: NewsContextType = {
-    user,
-    setUser, 
+   // user,
+   // setUser,
     inputRef,
-    reply,
-    setReply,
-    categories, setCategories
+    //reply,
+    //setReply,
+    categories,
+    setCategories,
   };
   return (
     <NewsContext.Provider value={contextValue}>{children}</NewsContext.Provider>

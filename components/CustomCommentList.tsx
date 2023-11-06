@@ -111,7 +111,7 @@ export default function CustomCommentList() {
                         prev.filter(item => item !== comment.idComment),
                       );
                     }}>
-                    <Text className="text-base font-semibold">Show less</Text>
+                    <Text className="text-base font-semibold">Hide less</Text>
                   </TouchableOpacity>
                 </View>
               ) : (

@@ -32,7 +32,7 @@ export default function DetailNewsScreen() {
     <View className="flex-1 flex-col w-full bg-white">
       {/* Header */}
       <HeaderBack
-        icons={[faArrowLeft, faShareNodes, faEllipsisVertical]}
+        icons={[faArrowLeft, faEllipsisVertical, faShareNodes]}
         nameNavigate={'HomeScreen'}
         title={hederBackTitle}
       />

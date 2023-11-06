@@ -15,7 +15,8 @@ import {
   faShareNodes,
   faEllipsisVertical,
   faHeart as faHeartBold,
-  faEllipsis
+  faEllipsis,
+  faPlus
 } from '@fortawesome/free-solid-svg-icons';
 
 import {faComment, faHeart, faCommentDots, faBell, faClock} from '@fortawesome/free-regular-svg-icons';
@@ -42,5 +43,6 @@ export const icons = {
   faCommentDots,
   faBell,
   faEllipsis,
-  faClock
+  faClock,
+  faPlus
 };

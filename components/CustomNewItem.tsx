@@ -40,7 +40,7 @@ export default function CustomNewItem() {
                     <View className="flex-row items-center gap-x-3">
                       <View className="flex-row items-center">
                         <CustomImage
-                          url="https://scontent.fsgn2-3.fna.fbcdn.net/v/t39.30808-6/276160050_333915868766014_403614321434139472_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=sv5bJ9ggVdEAX9MLuWI&_nc_ht=scontent.fsgn2-3.fna&_nc_e2o=f&oh=00_AfCFHLe36LgZdWqx0z2RlaHbs-lC7mdFH3pikP5Aj1jC3A&oe=65309220"
+                          url="https://play-lh.googleusercontent.com/Iip-8Yn3PLAzecCMb4ZaHTvFObl3ETUWZmd5zLflhbB6BXKyNc5aM4hrGAA9NXSs7i0=w240-h480-rw"
                           classNames={[
                             'mr-2',
                             'h-8 w-8 object-cover rounded-full',

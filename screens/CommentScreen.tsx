@@ -38,8 +38,6 @@ export default function CommentScreen() {
 
   const {idNew} = route.params as {idNew: number};
 
-  console.log(idNew);
-
   const [commentInput, setCommentInput] = useState<string>('');
 
   const handleSubmitMessage = (input: string) => {};
