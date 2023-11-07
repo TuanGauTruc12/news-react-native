@@ -11,8 +11,8 @@ import {User} from '../objects/User';
 import {Category} from '../objects/Category';
 
 type NewsContextType = {
- // user: User | undefined;
- // setUser: Dispatch<SetStateAction<User | undefined>>;
+  // user: User | undefined;
+  // setUser: Dispatch<SetStateAction<User | undefined>>;
   inputRef: React.RefObject<TextInput>;
   //reply: number | undefined;
   //setReply: Dispatch<SetStateAction<number | undefined>>;
@@ -45,8 +45,8 @@ const NewsProvider: React.FC<NewsProviderProps> = ({
   const inputRef = useRef<TextInput>(null);
 
   const contextValue: NewsContextType = {
-   // user,
-   // setUser,
+    // user,
+    // setUser,
     inputRef,
     //reply,
     //setReply,

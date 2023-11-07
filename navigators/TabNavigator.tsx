@@ -60,7 +60,7 @@ export default function TabNavigator() {
           );
         },
       })}
-      initialRouteName="Home"
+      initialRouteName="Explore"
       >
       <Tab.Screen
         name="Home"

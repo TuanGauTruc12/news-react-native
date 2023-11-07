@@ -123,8 +123,11 @@ export default function CustomCommentList() {
                         ...prev,
                         comment.idComment,
                       ]);
-                    }}
-                  ><Text className="text-base font-semibold">{`Show more (${comment.comments.length - 2})`}</Text></TouchableOpacity>
+                    }}>
+                    <Text className="text-base font-semibold">{`Show more (${
+                      comment.comments.length - 2
+                    })`}</Text>
+                  </TouchableOpacity>
                 </View>
               )}
             </View>
