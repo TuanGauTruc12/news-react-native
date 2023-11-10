@@ -24,6 +24,6 @@ export class NewsItem {
     this.content = content;
     this.imageAuthorUrl = imageAuthorUrl;
     this.author = author;
-    this.timer = parseDate(timer);
+    this.timer =  timer//parseDate(timer);
   }
 }

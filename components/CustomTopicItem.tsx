@@ -11,7 +11,10 @@ export default function CustomTopicItem({topic}: CustomTopicItemProps) {
     <View className="flex-row mb-3 py-2">
       <CustomImage
         url={topic.topicImage}
-        classNames={['w-[72px] h-[72px]', 'w-full h-full object-cover rounded-lg']}
+        classNames={[
+          'w-[72px] h-[72px]',
+          'w-full h-full object-cover rounded-lg',
+        ]}
       />
       <View className="flex-1 mx-2">
         <Text className="text-black font-semibold text-lg">

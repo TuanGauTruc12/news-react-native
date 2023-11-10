@@ -74,4 +74,4 @@ yarn-error.log
 __tests__
 .bundle
 
-/objects/*.json
+# /objects/*.json

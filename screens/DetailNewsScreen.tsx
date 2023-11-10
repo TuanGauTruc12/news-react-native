@@ -33,7 +33,6 @@ export default function DetailNewsScreen() {
       {/* Header */}
       <HeaderBack
         icons={[faArrowLeft, faEllipsisVertical, faShareNodes]}
-        nameNavigate={'HomeScreen'}
         title={hederBackTitle}
       />
 

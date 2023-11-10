@@ -1,31 +1,34 @@
 import {useNavigation} from '@react-navigation/core';
 import {View, Text, TouchableOpacity, Touchable, StatusBar} from 'react-native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {heightNavigationBottom} from '../utils';
+import {heightNavigationBottom, renderScreenNewsItem} from '../utils';
+import {CustomInput} from '../components';
+import {useState} from 'react';
+import CustomNewsList from '../components/CustomNewsList';
 
 export default function BookmarkScreen() {
+  const [search, setSearch] = useState<string>('');
   return (
     <View
-      className='bg-white h-full px-4'
+      className="bg-white pt-6 px-5 h-full"
       style={{
         marginBottom: heightNavigationBottom,
       }}>
       <StatusBar backgroundColor="white" barStyle="dark-content" />
-      <View className="h-12 justify-center mt-3">
-        <Text className="text-3xl font-extrabold text-black">Explore</Text>
+      <Text className="text-black text-xl">Bookmark</Text>
+      <View className="h-20 w-full mt-3 flex-none">
+        <CustomInput
+          isSearch
+          setInput={setSearch}
+          input={search}
+          placeholder="Search..."
+        />
       </View>
-      <View>
-        <Text>Topic</Text>
-        <TouchableOpacity onPress={()=>{
-          console.log("See all");
-          
-        }}>
-          See all
-        </TouchableOpacity>
-      </View>
-      <View></View>
-      <View></View>
-      <View></View>
+      <CustomNewsList
+        // search={search}
+        limit={10}
+        renderScreenNewsItem={renderScreenNewsItem.bookMark}
+      />
     </View>
   );
 }

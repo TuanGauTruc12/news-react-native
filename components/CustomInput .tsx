@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {icons} from '../utils';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
@@ -21,6 +21,8 @@ interface ICustomInputProps {
   setMessageError?: (value: string) => void | undefined;
   handleSubmitMessage?: (value: string) => void | undefined;
   isComment?: boolean;
+  handleInputBlur?: () => void;
+  handleInputFocus?: () => void;
 }
 
 export default function CustomInput({
@@ -38,6 +40,8 @@ export default function CustomInput({
   messageError,
   isComment,
   handleSubmitMessage,
+  handleInputFocus,
+  handleInputBlur,
 }: ICustomInputProps) {
   const {
     faAsterisk,
@@ -50,9 +54,9 @@ export default function CustomInput({
   const [isClear, setIsClear] = useState<boolean>(true);
   const [classNameInput, setClassNameInput] = useState<string>('');
   const {inputRef} = useNewsContext();
-  const handleClearInput = () => {
+  const handleClearInput = useCallback(() => {
     setInput('');
-  };
+  }, []);
 
   useEffect(() => {
     setIsClear(input.length > 0);
@@ -69,14 +73,14 @@ export default function CustomInput({
   }, [isClear, isError, isPassword]);
 
   return isSearch ? (
-    <View className="w-full relative py-2 justify-center mb-2 bottom-1">
-      <View className="absolute translate-y-4 h-full ml-2">
+    <View className="w-full relative py-3 justify-center bottom-1">
+      <View className="absolute translate-y-4 h-full ml-4">
         <FontAwesomeIcon icon={faMagnifyingGlass} size={25} />
       </View>
       <TextInput
-        className={`${
-          isClear ? 'w-[90%]' : 'w-full'
-        } border-blue-500 h-full border pl-10 pr-5 rounded-md`}
+        onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
+        className={`focus:border-blue-500 h-full border pl-12 pr-14 rounded-md`}
         placeholder={placeholder}
         value={input}
         onChangeText={e => {
@@ -86,7 +90,7 @@ export default function CustomInput({
       />
 
       <View
-        className={`absolute right-0 h-full px-3 justify-center bg-blue-400 transition-all ease-in-out duration-1000 ${
+        className={`absolute right-0 h-full justify-center transition-all ease-in-out duration-1000 px-4 ${
           isClear ? 'flex' : 'hidden'
         }`}>
         <TouchableOpacity onPress={handleClearInput}>
@@ -96,7 +100,7 @@ export default function CustomInput({
     </View>
   ) : isComment ? (
     <View className="w-full relative p-4 justify-center bg-white border-2 border-gray-200 flex-none">
-      <View className={`w-full border-2 border-blue-400`}>
+      <View className={`w-full border-2 border-primary-color`}>
         <TextInput
           ref={inputRef}
           className={`${isClear ? 'w-[80%]' : 'w-[90%]'} h-10 pl-3`}

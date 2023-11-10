@@ -2,11 +2,14 @@ import React, {Component} from 'react';
 import {View, Text, Animated, StyleSheet, Easing} from 'react-native';
 
 export default class Circle extends Component {
-  constructor() {
+  constructor(...props) {
     super();
     this.animated = new Animated.Value(0);
     this.numCircles = 7;
     this.circles = [];
+    this.height = props[0]?.height;
+    this.width = props[0]?.width;
+    this.translateX = props[0].translateX;
 
     for (let i = 0; i < this.numCircles; i++) {
       const inputRange = [0, 1];
@@ -20,7 +23,7 @@ export default class Circle extends Component {
         style: {
           transform: [
             {rotate: this.animated.interpolate({inputRange, outputRange})},
-            {translateX: 60}, // 60 is the radius from the center
+            {translateX: this.translateX || 60},
           ],
         },
       });
@@ -35,7 +38,7 @@ export default class Circle extends Component {
     Animated.loop(
       Animated.timing(this.animated, {
         toValue: 1,
-        duration: 6000, // Adjust duration to fit the number of circles
+        duration: 6000,
         useNativeDriver: true,
         easing: Easing.linear,
       }),
@@ -47,8 +50,14 @@ export default class Circle extends Component {
       <View style={styles.container}>
         {this.circles.map((circle, index) => (
           <Animated.View
+            className="bg-primary-color"
             key={index}
-            style={[styles.dot, circle.style]}></Animated.View>
+            style={[
+              styles.dot,
+              circle.style,
+              this.height &&
+              this.width && {height: this.height, width: this.width},
+            ]}></Animated.View>
         ))}
       </View>
     );
@@ -59,13 +68,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   dot: {
     width: 25,
     height: 25,
     borderRadius: 25,
-    backgroundColor: '#b6b6fa',
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',

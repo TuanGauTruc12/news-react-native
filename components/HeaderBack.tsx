@@ -7,13 +7,11 @@ import {IconDefinition} from '@fortawesome/fontawesome-svg-core';
 interface HeaderBackProps {
   icons: IconDefinition[];
   title?: string | undefined;
-  nameNavigate: keyof RootStackParams;
 }
 
 export default function HeaderBack({
   icons,
   title,
-  nameNavigate,
 }: HeaderBackProps) {
   const [faArrowLeft, faEllipsisVertical, faShareNodes] = icons;
 
@@ -21,7 +19,7 @@ export default function HeaderBack({
     <View className="h-14 items-center flex-row relative w-full justify-between">
       <TouchableOpacity
         onPress={() => {
-          navigation.replace(nameNavigate);
+          navigation.goBack();
         }}
         className="h-full w-14 items-center justify-center px-3">
         <FontAwesomeIcon size={30} icon={faArrowLeft} />

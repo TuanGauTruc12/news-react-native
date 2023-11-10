@@ -6,25 +6,23 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
 } from 'react-native';
-import {Topic} from '../objects/Topic';
-import topicData from '../objects/topics.json';
-import CustomTopicItem from './CustomTopicItem';
+import authorData from '../objects/authors.json';
 import Circle from './Circle';
+import {Author} from '../objects/Author';
+import CustomAuthorItem from './CustomAuthorItem';
 
-interface CustomTopicListProps {
-  searchQuery?: string;
-  isSearch?: boolean;
-  limit?: number;
-  inputFocused?: boolean;
+interface CustomAuthorListProps {
+  searchQuery: string;
+  inputFocused: boolean;
+  limit: number;
 }
 
-export default function CustomTopicList({
-  isSearch,
-  limit = 4,
+export default function CustomAuthorList({
   searchQuery,
   inputFocused,
-}: CustomTopicListProps) {
-  const [topics, setTopics] = useState<Topic[]>([]);
+  limit,
+}: CustomAuthorListProps) {
+  const [authors, setAuthors] = useState<Author[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const scrollViewRef = useRef<ScrollView>(null);
 
@@ -43,12 +41,24 @@ export default function CustomTopicList({
 
         //call api pagination when scroll
         setTimeout(() => {
-          setTopics(prev => [...prev, ...topicData]);
+          const newAuthors: Author[] = [];
+          authorData.forEach(data => {
+            const author = new Author(
+              data.id,
+              data.authorImage,
+              data.authorName,
+              data.numberOfFollower,
+              data.isFollowed,
+            );
+            newAuthors.push(author);
+          });
+
+          setAuthors(prev => [...prev, ...newAuthors]);
           setLoading(false);
 
           if (scrollViewRef.current) {
             scrollViewRef.current.scrollTo({
-              y: scrollEndPosition,
+              y: scrollEndPosition - 10,
               animated: true,
             });
           }
@@ -59,52 +69,48 @@ export default function CustomTopicList({
   );
 
   useLayoutEffect(() => {
-    let idTimeOut: any;
-    if (typeof searchQuery === 'undefined') {
-      idTimeOut = setTimeout(() => {
-        setTopics(topicData.slice(0, limit));
-      }, 2000);
-    } else {
-      setTopics(topicData);
-    }
+    const authorsData: Author[] = [];
+    authorData.forEach(data => {
+      const author = new Author(
+        data.id,
+        data.authorImage,
+        data.authorName,
+        data.numberOfFollower,
+        data.isFollowed,
+      );
+      authorsData.push(author);
+    });
 
-    return () => {
-      clearTimeout(idTimeOut);
-    };
+    setAuthors(authorsData);
   }, []);
 
   useEffect(() => {
-    if (isSearch && typeof searchQuery === 'string') {
-      if (searchQuery.length !== 0) {
-        setTopics(
-          topicData.filter((topic: Topic) =>
-            topic.topicTitle.toLowerCase().includes(searchQuery?.toLowerCase()),
-          ),
-        );
-      } else {
-        setTopics(topicData);
-      }
-    }
+    //search query api when search change delay 1000s
+    //   if (searchQuery.length !== 0) {
+    //     setAuthors(
+    //       authorData.filter((author: Author) =>
+    //         author.authorName.toLowerCase().includes(searchQuery?.toLowerCase()),
+    //       ),
+    //     );
+    //   } else {
+    //     setAuthors(authorData);
+    //   }
   }, [searchQuery]);
 
   return (
     <>
       <ScrollView
         ref={scrollViewRef}
-        onScroll={typeof isSearch === 'boolean' && isSearch ? handleScroll : () => {}}
+        onScroll={handleScroll}
         showsVerticalScrollIndicator={false}
         className={`pt-2`}>
-        {!searchQuery && !isSearch
-          ? topics.map((topic: Topic) => (
-              <CustomTopicItem key={topic.id} topic={topic} />
-            ))
-          : topics.map((topic: Topic, index: number) => (
-              <View key={topic.id + index}>
-                <CustomTopicItem topic={topic} />
-              </View>
-            ))}
+        {authors.map((author: Author, index: number) => (
+          <View key={author.id + index + Math.random()}>
+            <CustomAuthorItem author={author} />
+          </View>
+        ))}
       </ScrollView>
-      {typeof isSearch === 'boolean' && topics.length === 0 && (
+      {authors.length === 0 && (
         <View className="w-full h-1/2 items-center">
           <Text className="text-black text-lg">
             Không tìm thấy kết quả cần tìm

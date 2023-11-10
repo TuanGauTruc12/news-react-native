@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "BBC News",
+    "numberOfFollower": 1200000,
+    "isFollowed": false
+  },
+  {
+    "id": 2,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "cnn",
+    "numberOfFollower": 959000,
+    "isFollowed": true
+  },
+  {
+    "id": 3,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "Vox",
+    "numberOfFollower": 452000,
+    "isFollowed": false
+  },
+  {
+    "id": 4,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "USA today",
+    "numberOfFollower": 325000,
+    "isFollowed": true
+  },
+  {
+    "id": 5,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "CNBC",
+    "numberOfFollower": 21000,
+    "isFollowed": true
+  },
+  {
+    "id": 6,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "CNet",
+    "numberOfFollower": 18000,
+    "isFollowed": false
+  },
+  {
+    "id": 7,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "MSN",
+    "numberOfFollower": 15000,
+    "isFollowed": false
+  },
+  {
+    "id": 8,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "The New York Times",
+    "numberOfFollower": 1000000,
+    "isFollowed": true
+  },
+  {
+    "id": 9,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "HuffPost",
+    "numberOfFollower": 100,
+    "isFollowed": false
+  },
+  {
+    "id": 10,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "Fox Sports",
+    "numberOfFollower": 1100000,
+    "isFollowed": false
+  },
+  {
+    "id": 11,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "NBC News",
+    "numberOfFollower": 789000,
+    "isFollowed": true
+  },
+  {
+    "id": 12,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "Forbes",
+    "numberOfFollower": 40,
+    "isFollowed": false
+  },
+  {
+    "id": 13,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "The Wall Street Journal",
+    "numberOfFollower": 400000,
+    "isFollowed": true
+  },
+  {
+    "id": 14,
+    "authorImage": "https://picsum.photos/200/300",
+    "authorName": "TechCrunch",
+    "numberOfFollower": 200900,
+    "isFollowed": true
+  }
+]

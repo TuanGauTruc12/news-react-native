@@ -9,53 +9,6 @@ export default function ExploreScreen() {
   // const navigation =
   //   useNavigation<NativeStackNavigationProp<RootTabParams>>();
 
-  const [topics] = useState<Topic[]>([
-    {
-      id: 1,
-      topicImage: 'https://picsum.photos/200/300',
-      topicTitle: 'Health',
-      topicDescription: 'Get energizing workout moves, healthy recipes...',
-      isSave: false,
-    },
-    {
-      id: 2,
-      topicImage: 'https://picsum.photos/200/300',
-      topicTitle: 'Technology',
-      topicDescription:
-        'Get energizing workout moves, healthy recipes...Get energizing workout moves, healthy recipes...',
-      isSave: true,
-    },
-    {
-      id: 3,
-      topicImage: 'https://picsum.photos/200/300',
-      topicTitle: 'Art',
-      topicDescription:
-        'Art is a diverse range of human activity, and result...',
-      isSave: true,
-    },
-    {
-      id: 4,
-      topicImage: 'https://picsum.photos/200/300',
-      topicTitle: 'Health',
-      topicDescription: 'Get energizing workout moves, healthy recipes...',
-      isSave: true,
-    },
-    {
-      id: 5,
-      topicImage: 'https://picsum.photos/200/300',
-      topicTitle: 'Health',
-      topicDescription: 'Get energizing workout moves, healthy recipes...',
-      isSave: true,
-    },
-    {
-      id: 6,
-      topicImage: 'https://picsum.photos/200/300',
-      topicTitle: 'Health',
-      topicDescription: 'Get energizing workout moves, healthy recipes...',
-      isSave: true,
-    },
-  ]);
-
   return (
     <View
       className="bg-white h-full px-5"
@@ -76,7 +29,7 @@ export default function ExploreScreen() {
         </TouchableOpacity>
       </View>
       <View className="flex-1">
-        <CustomTopicList topics={topics} />
+        <CustomTopicList />
       </View>
       <View className="flex-none my-1">
         <Text>Popular Topic</Text>

@@ -14,7 +14,7 @@ export default function CustomCategoryList({
 }: CustomCategoryListProps) {
   return (
     <>
-      <View className="w-full mt-1 flex-1">
+      <View className="w-full mt-1 flex-1 bg-white">
         <View className="justify-between flex-row items-center">
           {checkSeeAll && (
             <>

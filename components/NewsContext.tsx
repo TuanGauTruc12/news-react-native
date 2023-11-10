@@ -9,6 +9,7 @@ import {
 import {TextInput} from 'react-native';
 import {User} from '../objects/User';
 import {Category} from '../objects/Category';
+import {NewsItem} from '../objects/NewsItem';
 
 type NewsContextType = {
   // user: User | undefined;
@@ -16,6 +17,8 @@ type NewsContextType = {
   inputRef: React.RefObject<TextInput>;
   //reply: number | undefined;
   //setReply: Dispatch<SetStateAction<number | undefined>>;
+  news: NewsItem[];
+  setNews: Dispatch<SetStateAction<NewsItem[]>>;
   categories: Category[];
   setCategories: Dispatch<SetStateAction<Category[]>>;
 };
@@ -42,9 +45,12 @@ const NewsProvider: React.FC<NewsProviderProps> = ({
   // const [user, setUser] = useState<User | undefined>();
   // const [reply, setReply] = useState<number | undefined>();
   const [categories, setCategories] = useState<Category[]>([]);
+  const [news, setNews] = useState<NewsItem[]>([]);
   const inputRef = useRef<TextInput>(null);
 
   const contextValue: NewsContextType = {
+    news,
+    setNews,
     // user,
     // setUser,
     inputRef,

@@ -55,7 +55,7 @@ export default function CommentScreen() {
       <View className="h-14 bg-white items-center flex-row relative border-b-2 border-gray-300">
         <TouchableOpacity
           onPress={() => {
-            navigation.replace('DetailNewsScreen');
+            navigation.goBack();
           }}
           className="h-full w-14 items-center justify-center z-10">
           <FontAwesomeIcon size={30} icon={faArrowLeft} />

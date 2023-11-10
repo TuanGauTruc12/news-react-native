@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {Category} from '../objects/Category';
 import {useNewsContext} from './NewsContext';
-import CustomNewItem from './CustomNewItem';
-import { buttonOpacityActive } from '../utils';
+import {buttonOpacityActive, renderScreenNewsItem} from '../utils';
+import CustomNewsList from './CustomNewsList';
 
 export default function CustomCategoryItem() {
   const [checkCategory, setCheckCategory] = useState<number>(0);
@@ -33,7 +33,10 @@ export default function CustomCategoryItem() {
         })}
       </ScrollView>
 
-      <CustomNewItem />
+      <CustomNewsList
+        latest={{idCategory: checkCategory}}
+        renderScreenNewsItem={renderScreenNewsItem.latest}
+      />
     </>
   );
 }

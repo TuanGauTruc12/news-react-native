@@ -29,15 +29,43 @@ export const parseDate = (time: string): string => {
   }
 };
 
+export function parseNumberOfFollower(numberFollower: number): string {
+  let str: string = '0';
+
+  if (numberFollower >= 0 && numberFollower < 1000) {
+    str = numberFollower + '';
+  } else if (numberFollower >= 1000 && numberFollower < 1000000) {
+    str = `${Math.floor(numberFollower / 1000)}K`;
+  } else if (numberFollower >= 1000000 && numberFollower < 1000000000) {
+    str = `${Math.floor(numberFollower / 1000000)}M`;
+  } else if (numberFollower >= 1000000000) {
+    str = `${Math.floor(numberFollower / 1000000000)}M`;
+  }
+  return `${str} Followers`;
+}
+
+
 export const heightNavigationBottom: number = 60;
 
-export const buttonOpacityActive: number = 0.3;
+export const buttonOpacityActive: number = 0.7;
 
 export const navigation =
   useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
-export const navigationTitle:RootStackParams = useNavigation<RootStackParams>();
+export const navigationTitle: RootStackParams =
+  useNavigation<RootStackParams>();
 
-export function nameNavigationTitle<T extends keyof RootStackParams>(type: T): string {
+export function nameNavigationTitle<T extends keyof RootStackParams>(
+  type: T,
+): string {
   return type.split('Screen')[0];
 }
+
+export const renderScreenNewsItem = {
+  bookMark: 'bookmark',
+  latest: 'latest',
+  search: 'search',
+  authorProfile: 'authorProfile',
+};
+
+export const listSearch = ['News', 'Topics', 'Author'];

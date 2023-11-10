@@ -11,8 +11,6 @@ import {RootTabParams, heightNavigationBottom, icons} from '../utils';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {Text, View, Dimensions} from 'react-native';
 
-
-
 export default function TabNavigator() {
   const Tab = createBottomTabNavigator<RootTabParams>();
   const {faHouse, faBookmark, faCompass, faUser} = icons;
@@ -53,15 +51,14 @@ export default function TabNavigator() {
               style={{
                 color: focused ? tabColors.active : 'black',
                 fontWeight: focused ? 'bold' : '400',
-                fontSize: focused ? 18 : 16
+                fontSize: focused ? 18 : 16,
               }}>
               {route.name}
             </Text>
           );
         },
       })}
-      initialRouteName="Explore"
-      >
+      initialRouteName="Explore">
       <Tab.Screen
         name="Home"
         component={HomeScreen}

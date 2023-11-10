@@ -83,7 +83,6 @@ export default function NotificationScreen() {
     <View className="w-full h-full bg-white">
       <HeaderBack
         icons={[faArrowLeft]}
-        nameNavigate="HomeScreen"
         title={hederBackTitle}
       />
 

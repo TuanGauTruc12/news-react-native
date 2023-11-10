@@ -2,13 +2,19 @@ import React, {useEffect, useState} from 'react';
 import {ScrollView, View, Text, TouchableOpacity} from 'react-native';
 import {CustomCategoryList, CustomImage, CustomInput} from '../components';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {RootStackParams, buttonOpacityActive, heightNavigationBottom, icons, navigation} from '../utils';
+import {
+  RootStackParams,
+  buttonOpacityActive,
+  heightNavigationBottom,
+  icons,
+  navigation,
+} from '../utils';
 import {Category} from '../objects/Category';
 import {useNewsContext} from '../components/NewsContext';
 
 export default function HomeScreen() {
-  const {faBell, faEllipsis, faClock} = icons;
-  const [search, setSearch] = useState<string>('');    
+  const {faBell, faEllipsis, faClock, faMagnifyingGlass} = icons;
+  const [search, setSearch] = useState<string>('');
   const {setCategories} = useNewsContext();
 
   useEffect(() => {
@@ -39,7 +45,7 @@ export default function HomeScreen() {
 
   return (
     <View
-      className="px-5 flex-1 h-full w-full relative"
+      className="px-5 flex-1 h-full w-full relative bg-white"
       style={{marginBottom: 0}}>
       <View className="w-full flex-col">
         <View className="h-16 justify-between mt-2 flex-row items-center">
@@ -49,14 +55,14 @@ export default function HomeScreen() {
           />
           <FontAwesomeIcon icon={faBell} size={30} />
         </View>
-        <View className="h-20 w-full">
-          <CustomInput
-            isSearch
-            setInput={setSearch}
-            input={search}
-            placeholder="Search..."
-          />
-        </View>
+        <TouchableOpacity
+          onPress={() => navigation.push('SearchScreen')}
+          activeOpacity={buttonOpacityActive}
+          className="h-14 w-full border border-primary-color my-3">
+          <View className="justify-center h-full pl-4">
+            <FontAwesomeIcon icon={faMagnifyingGlass} size={30} />
+          </View>
+        </TouchableOpacity>
       </View>
 
       <View className="w-full flex-1">
@@ -108,7 +114,7 @@ export default function HomeScreen() {
             </View>
           </TouchableOpacity>
         </View>
-        <CustomCategoryList checkSeeAll/>
+        <CustomCategoryList checkSeeAll />
       </View>
     </View>
   );
